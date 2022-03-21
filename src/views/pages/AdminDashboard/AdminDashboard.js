@@ -11,13 +11,13 @@ const AdminDashboard = () => {
     const [newDiscount,setNewDiscount] = useState(0);
 
     useEffect(()=>{
-        fetch(`http://localhost:5000/hospital/users?existEmail=${user.email}`)
+        fetch(`https://enigmatic-cliffs-44375.herokuapp.com/hospital/users?existEmail=${user.email}`)
         .then(res=>res.json())
         .then(data=>setCurrentDiscount(data?.discount?.toString()))
     },[user.email])
 
     const handleDiscount = () =>{
-        fetch('http://localhost:5000/hospital/user/discount',{
+        fetch('https://enigmatic-cliffs-44375.herokuapp.com/hospital/user/discount',{
             method:"POST",
             headers:{
                 "content-type":"application/json"

@@ -8,7 +8,7 @@ const NewsAll = () => {
     const [allNews,setAllNews] = useState([]);
     useEffect(()=>{
         try {
-            fetch("http://localhost:5000/hospital/news")
+            fetch("https://enigmatic-cliffs-44375.herokuapp.com/hospital/news")
                 .then(res=>res.json())
                 .then(data=>setAllNews(data))
         } catch (error) {

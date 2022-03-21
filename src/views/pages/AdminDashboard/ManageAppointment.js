@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 const ManageAppointment = () => {
     const [allAppointment,setAllAppointment] = useState([]);
     useEffect(()=>{
-        fetch('http://localhost:5000/hospital/appointments')
+        fetch('https://enigmatic-cliffs-44375.herokuapp.com/hospital/appointments')
             .then(res=>res.json())
             .then(data=>{
                 setAllAppointment(data);
@@ -13,7 +13,7 @@ const ManageAppointment = () => {
 
     const handleDelete = id =>{
         console.log(id);
-            fetch(`http://localhost:5000/hospital/appointments/${id}`,{method:"DELETE"})
+            fetch(`https://enigmatic-cliffs-44375.herokuapp.com/hospital/appointments/${id}`,{method:"DELETE"})
             .then(res=>res.json())
             .then(data=>{
                 if (data.deletedCount > 0) {

@@ -35,7 +35,7 @@ const Consultants = () => {
     const [consultantData,setConsultantData] = useState([])
     useEffect(()=>{
         try {
-            fetch("http://localhost:5000/hospital/consultant")
+            fetch("https://enigmatic-cliffs-44375.herokuapp.com/hospital/consultant")
                 .then(res=>res.json())
                 .then(data=>setConsultantData(data))
         } catch (error) {

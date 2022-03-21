@@ -8,7 +8,7 @@ const Department = () => {
     const [department,setDepartment] = useState({});
     console.log(department);
     useEffect(()=>{
-        fetch(`http://localhost:5000/hospital/department/${id}`)
+        fetch(`https://enigmatic-cliffs-44375.herokuapp.com/hospital/department/${id}`)
         .then(res=>res.json())
         .then(data=>setDepartment(data))
     },[id])

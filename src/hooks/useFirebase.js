@@ -1,5 +1,5 @@
+import { createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, onAuthStateChanged, sendEmailVerification, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import { useEffect, useState } from "react";
-import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged, sendEmailVerification , updateProfile,signInWithEmailAndPassword,signOut,signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import firebaseInitialization from "../firebase/firebase.init";
 
 firebaseInitialization();
@@ -67,7 +67,7 @@ const useFirebase = () => {
         setIsloading(true);
         signInWithPopup(auth,googleProvider)
             .then(result =>{
-                fetch(`http://localhost:5000/hospital/users?existEmail=${result.user.email}`)
+                fetch(`https://enigmatic-cliffs-44375.herokuapp.com/hospital/users?existEmail=${result.user.email}`)
                     .then(res=>res.json())
                     .then(data=>{
                         navigate(locationFrom, {replace: true})
@@ -95,7 +95,7 @@ const useFirebase = () => {
     // save new registration data to database 
     const saveRegData = (userFullObjInfo,e) =>{
         console.log(userFullObjInfo,"going to save");
-        fetch('http://localhost:5000/hospital/registration',{
+        fetch('https://enigmatic-cliffs-44375.herokuapp.com/hospital/registration',{
             method:"POST",
             headers:{
                 "content-type":"application/json"

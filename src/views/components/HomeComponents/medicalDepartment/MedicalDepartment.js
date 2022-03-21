@@ -175,7 +175,7 @@ const MedicalDepartment = () => {
 
     useEffect(()=>{
         try {
-            fetch("http://localhost:5000/hospital/departments")
+            fetch("https://enigmatic-cliffs-44375.herokuapp.com/hospital/departments")
                 .then(res=>res.json())
                 .then(data=>setDepartments(data))
         } catch (error) {

@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import { IconContext } from "react-icons";
+import { FcSearch } from 'react-icons/fc';
 import { Link, useParams } from 'react-router-dom';
 import Footer from '../../components/footer/Footer';
 import Navbar from '../../components/navbar/Navbar';
-import { IconContext } from "react-icons";
-import { FcSearch } from 'react-icons/fc';
 
 
 const News = () => {
@@ -12,7 +12,7 @@ const News = () => {
     const [popularNews,setPopularNews] = useState([]);
     useEffect(()=>{
         try {
-            fetch("http://localhost:5000/hospital/news")
+            fetch("https://enigmatic-cliffs-44375.herokuapp.com/hospital/news")
                 .then(res=>res.json())
                 .then(data=>setPopularNews(data))
         } catch (error) {
@@ -21,7 +21,7 @@ const News = () => {
     },[])
     
     useEffect(()=>{
-        fetch(`http://localhost:5000/hospital/news/${id}`)
+        fetch(`https://enigmatic-cliffs-44375.herokuapp.com/hospital/news/${id}`)
         .then(res=>res.json())
         .then(data=>setNews(data))
     },[id])

@@ -43,7 +43,7 @@ const doc = [
 const TopDoctors = () => {
     const [doctors,setDoctors] = useState([]);
     useEffect(()=>{
-        fetch("http://localhost:5000/hospital/doctors")
+        fetch("https://enigmatic-cliffs-44375.herokuapp.com/hospital/doctors")
         .then(res=>res.json())
         .then(data=>setDoctors(data.splice(0,4)))
     },[])

@@ -122,7 +122,7 @@ const NewsHighlight = () => {
     },[news,currentPage])
 
     useEffect(()=>{
-        fetch('http://localhost:5000/hospital/news')
+        fetch('https://enigmatic-cliffs-44375.herokuapp.com/hospital/news')
         .then(res=>res.json())
         .then(data=>setNews(data))
     },[])

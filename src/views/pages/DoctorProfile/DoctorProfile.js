@@ -8,7 +8,7 @@ const DoctorProfile = () => {
     const [doctor,setDoctor] = useState({});
     console.log(doctor);
     useEffect(()=>{
-        fetch(`http://localhost:5000/hospital/doctors/${id}`)
+        fetch(`https://enigmatic-cliffs-44375.herokuapp.com/hospital/doctors/${id}`)
         .then(res=>res.json())
         .then(data=>setDoctor(data))
     },[id])

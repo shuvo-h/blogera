@@ -23,7 +23,7 @@ const Appointment = () => {
     const handleAppointment = (e) =>{
         e.preventDefault();
         
-        fetch("http://localhost:5000/hospital/appointments",{
+        fetch("https://enigmatic-cliffs-44375.herokuapp.com/hospital/appointments",{
             method:"post",
             headers:{
                 "content-type":"application/json"
@@ -40,7 +40,7 @@ const Appointment = () => {
         
     }
     useEffect(()=>{
-        fetch('http://localhost:5000/hospital/user/discount')
+        fetch('https://enigmatic-cliffs-44375.herokuapp.com/hospital/user/discount')
             .then(res=>res.json())
             .then(data=>{
                 setDiscountPercent(data.discount);
