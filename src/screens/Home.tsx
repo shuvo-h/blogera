@@ -19,7 +19,7 @@ export default function Home() {
         contentInsetAdjustmentBehavior="automatic"
         >
         <View>
-            <Text style={ST.hero}>Welcome to Buddist</Text>
+            <Text style={ST.hero}>Welcome to Buddist Era</Text>
             <Text style={GST.title}>I am Home page </Text>
             <Button title='Go About' onPress={() => navigation.navigate('About')} ></Button>
         </View>
