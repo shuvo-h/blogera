@@ -1,0 +1,13 @@
+custom font load
+- download the fonts into src/assets
+- react-native.config.ts    // create this at root and include the asset dir
+>> npx react-native-asset   // collect static asset after config the fonts
+- style={{fontFamily:"Poppins-Light"}}      // use in style 
+
+
+*** Router/Navigation Screen********
+>> npm install @react-navigation/native @react-navigation/native-stack
+- Wrap whole app by <NavigationContainer />
+
+
+
