@@ -5,6 +5,7 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../navigation/navigation';
 import { GST } from '../theme/group_styles';
 import { FAMILIES, WEIGHTS } from '../theme/fonts';
+import Blogs from './Home/Blogs';
 
 type THomeScreenNavigationProp = NativeStackNavigationProp<RootStackParamList, 'Home'>;
 
@@ -12,18 +13,17 @@ export default function Home() {
     const navigation = useNavigation<THomeScreenNavigationProp>();
      
   return (
-    <SafeAreaView >
+    <SafeAreaView style={{flex:1}}>
       <StatusBar
       />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        >
-        <View>
+      {/* <ScrollView contentInsetAdjustmentBehavior="automatic"> */}
+        <View style={{flex:1}}>
             <Text style={ST.hero}>Welcome to Buddist Era</Text>
-            <Text style={GST.title}>I am Home page </Text>
-            <Button title='Go About' onPress={() => navigation.navigate('About')} ></Button>
+            <Blogs />
+            {/* <Text style={GST.title}>I am Home page </Text> */}
+            {/* <Button title='Go About' onPress={() => navigation.navigate('About')} ></Button> */}
         </View>
-      </ScrollView>
+      {/* </ScrollView> */}
     </SafeAreaView>
   )
 }
@@ -35,6 +35,6 @@ const ST = StyleSheet.create({
         fontWeight: WEIGHTS.title,
         fontSize: 25,
         textAlign:"center",
-        marginVertical: 15,
+        marginVertical: 5,
     }
 })
