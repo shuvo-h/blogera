@@ -11,3 +11,6 @@ custom font load
 
 
 
+
+***********Buils APK*************
+>> ./android/.gradlew clean             // to clean any previous cache

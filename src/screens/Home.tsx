@@ -18,7 +18,8 @@ export default function Home() {
       />
       {/* <ScrollView contentInsetAdjustmentBehavior="automatic"> */}
         <View style={{flex:1}}>
-            <Text style={ST.hero}>Welcome to Buddist Era</Text>
+            <Text style={[ST.hero,{marginTop:10}]}>The Buddhist path to success and peace,</Text>
+            <Text style={[ST.hero,{textTransform:"uppercase"}]}>start now!</Text>
             <Blogs />
             {/* <Text style={GST.title}>I am Home page </Text> */}
             {/* <Button title='Go About' onPress={() => navigation.navigate('About')} ></Button> */}
@@ -33,8 +34,8 @@ const ST = StyleSheet.create({
     hero:{
         fontFamily: FAMILIES.title_popins,
         fontWeight: WEIGHTS.title,
-        fontSize: 25,
+        fontSize: 16,
         textAlign:"center",
-        marginVertical: 5,
+        textTransform:"capitalize"
     }
 })

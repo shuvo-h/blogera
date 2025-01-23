@@ -3,6 +3,7 @@ import Home from '../screens/Home';
 import About from '../screens/About';
 import { RootStackParamList } from './navigation';
 import BlogDetails from '../screens/BlogDetails/BlogDetails';
+import Header from '../components/shared/Header';
 
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -19,7 +20,14 @@ const StackNavigator = () =>{
             headerTitleStyle: { fontWeight: 'bold', fontSize: 18 }
         }}
     >
-        <Stack.Screen name='Home' component={Home} options={{title:"Home",headerShown:true}} />
+        <Stack.Screen 
+            name='Home' 
+            component={Home} 
+            options={{
+                title:"Home",headerShown:true,
+                header:()=> <Header title='Budddhist Power' />
+            }} 
+        />
         <Stack.Screen name='BlogDetail' component={BlogDetails} options={{title:"Blog Detail",headerShown:true}} />
         <Stack.Screen name='About' component={About} options={{title:"About",headerShown:true}} />
         
