@@ -12,10 +12,6 @@ custom font load
 
 
 
-***********Builds APK*************
->> ./android/.gradlew clean             // to clean any previous cache
-
-
 
 
 
@@ -89,19 +85,55 @@ Step 4: Update the android/app/build.gradle file
     ~
 
 
-Step 5: Build Your Release APK
->> npx react-native doctor
->> ./android/gradlew assembleRelease            // build apk for production
 
+
+Step 5: Build apk cache clean
+>> cd android
+>> ./android/gradlew clean                  // to clean any previous apk cache
+>> cd ..
+
+Step 6: Build Your Release APK
+>> npx react-native doctor
+>> cd android
+>> ./gradlew assembleRelease            // build APK for production
+>> ./gradlew bundleRelease              // build AAB file for productin
+
+>> cd ..
 >> npx react-native build-android --mode=release
 
 
 
 
+// reduce the apk build size
+>> android/app/build.gradle
+    """
+        def enableProguardInReleaseBuilds = true          // compress java
+        buildTypes {
+            release {
+                // ...rest
+                minifyEnabled true      // compress java code
+                shrinkResources true   // Remove unused resources (images, strings, etc.)
+            }
+        }
+        bundle {
+            language {
+                enableSplit = false // Split APKs by language (if needed)
+            }
+        }
+        splits {
+            abi {
+                enable true
+                reset()
+                include 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64'
+                universalApk false
+            }
+        }
+    """
 
 
 
 
 
 
+// generate keytook keystore key for app
 keytool -genkeypair -v -keystore /home/shuvoserver/Documents/djects/android_dev/keystro_keys/buddhst_app_key.keystore -keyalg RSA -keysize 2048 -validity 10000 -alias buddhist_app_key_alias
